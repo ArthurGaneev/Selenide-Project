@@ -1,4 +1,4 @@
-package selenide;
+package selenidePOM;
 
 import org.openqa.selenium.By;
 
