@@ -1,9 +1,7 @@
-package selenide;
+package selenide_with_assert;
 
 import org.junit.Test;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
 
 public class GoogleTest {
@@ -13,7 +11,7 @@ public class GoogleTest {
     new GooglePage().searchFor("selenide");
 
     SearchResultsPage results = new SearchResultsPage();
-    results.getResults().shouldHave(sizeGreaterThan(1));
-    results.getResult(0).shouldHave(text("Selenide: concise UI tests in Java"));
+    results.checkResultsSizeIsAtLeast(1);
+    results.checkResultHasTest(0, "Selenide: concise UI tests in Java");
   }
 }
